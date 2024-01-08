@@ -53,4 +53,19 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 10. **Entrenar un Modelo de Machine Learning:** Emplea Cloud AutoML para crear modelos sin experiencia previa en ML.
 
 ## Recomendaciones Adicionales
-- Familiarízate con conc
+- Familiarízate con conceptos básicos de Ciencia de Datos.
+- Para el ETL con PySpark, implementa scripts de PySpark en Dataproc.
+- Usa SQL para acceder a los datos en BigQuery.
+- Cloud Data Studio permite crear dashboards interactivos.
+
+## Análisis Exploratorio de Datos (EDA)
+- Yelp: 5 tablas (3 hechos, 2 dimensionales). Datos detallados.
+- Google Maps: 2 tablas relacionadas. Menos detallado y con datos faltantes.
+- Yelp como fuente principal; Google Maps, complementario según utilidad.
+
+## Modelo de Recomendación de Machine Learning
+- Ofrece sugerencias personalizadas basadas en gustos y preferencias.
+- Incluye tipo de comida, precio, ubicación, etc.
+
+## Informe de Sugerencias para Restaurantes
+- Brinda informes a restaurantes sobre áreas de mejora basadas en reseñas y tips de usuarios.
