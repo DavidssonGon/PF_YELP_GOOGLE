@@ -38,7 +38,7 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 - **Francisco Mejia (Data Engineer)**
 - **Diego Gamarra Rivera (Data Scientist)**
 - **Juan Ochoa (Data Scientist)**
-- **Lucas Koch (Data Analyst
+- **Lucas Koch (Data Analyst)**
 
 ## Cloud - Guía General
 1. **Crear una cuenta de GCP:** Visita la página de GCP y sigue el proceso de inscripción.
