@@ -1,10 +1,10 @@
 # Yelp - Google Maps
 
 ## Objetivos del Proyecto
-Prometheus Data Solutions, en colaboración con una asociación de restaurantes en Pennsylvania, ha emprendido un proyecto para evaluar la percepción de los clientes sobre los establecimientos afiliados a través de las reseñas en Yelp y Google Maps. Los objetivos incluyen medir la satisfacción, identificar preferencias, señalar áreas de mejora, destacar sectores con oportunidades de crecimiento y prever aquellos que podrían enfrentar disminuciones en las ventas. Además, se busca diseñar un sistema de recomendación mediante Machine Learning que ofrezca sugerencias personalizadas a los usuarios.
+La Asociación de Restaurantes y Afines de Pennsylvania ha encomendado a Prometheus Data Solutions la tarea de evaluar la percepción de los clientes sobre los establecimientos afiliados, mediante el análisis de reseñas en Yelp y Google Maps. Nuestros objetivos principales incluyen medir la satisfacción de los clientes, identificar preferencias, señalar áreas de mejora, destacar sectores con oportunidades de crecimiento y anticipar aquellos que podrían enfrentar disminuciones en las ventas. Además, se busca diseñar un sistema de recomendación mediante Machine Learning que ofrezca sugerencias personalizadas a los usuarios, basándose en sus gustos y preferencias específicas.
 
 ## Alcance del Proyecto
-El proyecto abarcará el proceso ETL y el Análisis Exploratorio de Datos (EDA), considerando la integración de información proveniente de Yelp y Google Maps. Se utilizarán herramientas como PySpark y Streamlit. El modelo de recomendación de Machine Learning incorporará análisis de sentimientos, técnicas de procesamiento de lenguaje natural (NLP) y considerará restaurantes de grandes cadenas en otros estados para mejorar la percepción en Pennsylvania.
+El proyecto abarcará el proceso ETL y el Análisis Exploratorio de Datos (EDA), considerando la integración de información proveniente de Yelp y Google Maps. Se utilizarán herramientas como PySpark y Streamlit. El modelo de recomendación de Machine Learning incorporará análisis de sentimientos, técnicas de procesamiento de lenguaje natural (NLP) y considerará restaurantes de grandes cadenas en otros estados para mejorar la percepción en Pensilvania.
 
 ## Stack Tecnológico
 ### Lenguaje de Programación
@@ -34,11 +34,11 @@ El proyecto abarcará el proceso ETL y el Análisis Exploratorio de Datos (EDA),
 ## Metodología
 El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equipo está compuesto por:
 
-- **Davidsson Gonzales (Data Engineer)**
-- **Francisco Mejia (Data Engineer)**
-- **Diego Gamarra Rivera (Data Scientist)**
-- **Juan Ochoa (Data Scientist)**
-- **Lucas Koch (Data Analyst)**
+- [Davidsson Gonzales](https://www.linkedin.com/in/davidsson-gonzalez-usma-6a7486295/) - Data Engineer
+- [Francisco Mejia](https://github.com/pachomejia26) - Data Engineer
+- [Diego Gamarra Rivera](https://www.linkedin.com/in/diegogamarrarivera/) - Data Scientist
+- [Juan Ochoa](https://www.linkedin.com/in/juan-gabriel-ochoa-g/) - Data Scientist
+- [Lucas Koch](https://www.linkedin.com/in/lucas-gkoch/) - Data Analyst
 
 ## Cloud - Guía General
 1. **Crear una cuenta de GCP:** Visita la página de GCP y sigue el proceso de inscripción.
@@ -52,11 +52,6 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 9. **Crear un Dashboard:** Utiliza Cloud Data Studio para crear paneles interactivos.
 10. **Entrenar un Modelo de Machine Learning:** Emplea Cloud AutoML para crear modelos sin experiencia previa en ML.
 
-## Recomendaciones Adicionales
-- Familiarízate con conceptos básicos de Ciencia de Datos.
-- Para el ETL con PySpark, implementa scripts de PySpark en Dataproc.
-- Usa SQL para acceder a los datos en BigQuery.
-- Cloud Data Studio permite crear dashboards interactivos.
 
 ## Análisis Exploratorio de Datos (EDA)
 - Yelp: 5 tablas (3 hechos, 2 dimensionales). Datos detallados.
