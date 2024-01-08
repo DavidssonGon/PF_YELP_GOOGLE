@@ -58,6 +58,9 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 - Google Maps: 2 tablas relacionadas. Menos detallado y con datos faltantes.
 - Yelp como fuente principal; Google Maps, complementario según utilidad.
 
+## Archivos complementarios
+Ser obtuvo un archivo GeoJson del estado de Pensilvania y sus condados. Este archivo fue descargado del sitio Pennsylvania Spatial Data Access (https://www.pasda.psu.edu/)
+
 ## Modelo de Recomendación de Machine Learning
 - Ofrece sugerencias personalizadas basadas en gustos y preferencias.
 - Incluye tipo de comida, precio, ubicación, etc.
