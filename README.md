@@ -78,32 +78,32 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 ![Pipeline de datos](https://drive.google.com/uc?id=1YAyKSca3QadvQL0N1CAeAkrrxJLHBHqa)
 
 1. Registrarse en Google Cloud Platform. 
-2. Activar facturación y regalo de 300 créditos gratis. (Sólo para quien va a trabajar montando el ecosistema, ya que este beneficio tiene una duración limitada de 3 meses)
-    -[Cómo usar Google Cloud Storage](https://www.youtube.com/watch?v=HSIyOin5paQ)
+2. Activar facturación y regalo de 300 créditos gratis. (Sólo para quien va a trabajar montando el ecosistema, ya que este beneficio tiene una duración limitada de 3 meses).
+    - [Cómo usar Google Cloud Storage](https://www.youtube.com/watch?v=HSIyOin5paQ)
 3. Se establece un presupuesto para el proyecto.
 4. Asignación de roles y permisos para los demás miembros.
-    -[Gestión de Identidades y Accesos de Google Cloud (IAM)](https://www.youtube.com/watch?v=ZS3qyD_cveY)
+    - [Gestión de Identidades y Accesos de Google Cloud (IAM)](https://www.youtube.com/watch?v=ZS3qyD_cveY)
 5. Se crea un bucket en gcp con la herramienta Google Cloud Storage.
-    -Se crea el bucket.
-    -Se crean las respectivas carpetas de los datasets dentro del bucket.
-    -Se suben los archivos en la carpeta datasets.
-    -[Cómo usar Google Cloud Storage](https://www.youtube.com/watch?v=HSIyOin5paQ)
+    - Se crea el bucket.
+    - Se crean las respectivas carpetas de los datasets dentro del bucket.
+    - Se suben los archivos en la carpeta datasets.
+    - [Cómo usar Google Cloud Storage](https://www.youtube.com/watch?v=HSIyOin5paQ)
 6. Se crea un clúster de Apache Spark con la herramienta Dataproc.
-    -Se habilitan las API’s de Cloud Resource Manager API y Cloud Dataproc API.
-    -Se crea el clúster con Compute Engine.
-    -Se suben los scripts de python a la carpeta de un bucket que contienen el código pyspark del ETL.
+    - Se habilitan las API’s de Cloud Resource Manager API y Cloud Dataproc API.
+    - Se crea el clúster con Compute Engine.
+    - Se suben los scripts de python a la carpeta de un bucket que contienen el código pyspark del ETL.
 7. Se crea un conjunto de Datos en BigQuery
-    -Se habilitan API’s Google BigQuery
-    -Se crea un conjunto de datos
-    -Se crea una consulta que crea las tablas de los datos a entrar del ETL
+    - Se habilitan API’s Google BigQuery
+    - Se crea un conjunto de datos
+    - Se crea una consulta que crea las tablas de los datos a entrar del ETL
 8. Se crean las Cloud Functions
-    -Se crea una cloud function para que llene las tablas creadas en BigQuery con los archivos parquet que llegan a un bucket en particular. Esta cloud function se activa con cualquier evento de carga de archivos al bucket.
-    -[Introducción a Google Cloud Functions](https://www.youtube.com/watch?v=Ggec25RDy2o)
+    - Se crea una cloud function para que llene las tablas creadas en BigQuery con los archivos parquet que llegan a un bucket en particular. Esta cloud function se activa con cualquier evento de carga de archivos al bucket.
+    - [Introducción a Google Cloud Functions](https://www.youtube.com/watch?v=Ggec25RDy2o)
 9. Se ejecutan los trabajos en Dataproc
-    -Se realizan de manera manual los trabajos en el clúster creado realizando un llamado a los scripts de ETL
-    -La ejecución del ETL guarda los  DataFrames en archivos parquet en un bucket de salida
+    - Se realizan de manera manual los trabajos en el clúster creado realizando un llamado a los scripts de ETL
+    - La ejecución del ETL guarda los  DataFrames en archivos parquet en un bucket de salida
 10. Se ejecuta la Cloud Function de manera automática
-    -Al detectar los archivos en el bucket de salida de salida los utiliza para llenar las tablas con sus respectivos nombres asignados
+    - Al detectar los archivos en el bucket de salida de salida los utiliza para llenar las tablas con sus respectivos nombres asignados
 
 ## Análisis Exploratorio de Datos (EDA)
 - Yelp: 5 tablas (3 hechos, 2 dimensionales). Datos detallados.
