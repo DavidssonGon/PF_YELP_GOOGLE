@@ -110,6 +110,17 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 - Google Maps: 2 tablas relacionadas. Menos detallado y con datos faltantes.
 - Yelp como fuente principal; Google Maps, complementario según utilidad.
 
+## Diagrama de Entidad-Relación (ERD)
+
+Para visualizar la estructura de la base de datos utilizada en este proyecto, se creó un Diagrama de Entidad-Relación (DER).diagrama en formato PDF: [Diagrama entidad-relación](DER_yelp_google.pdf).
+
+
+## Diccionario de Datos
+
+[Diccionario de Datos](Diccionario_de_datos.docx).
+
+
+
 ## Archivos complementarios
 Ser obtuvo un archivo GeoJson del estado de Pensilvania y sus condados. Este archivo fue descargado del sitio Pennsylvania Spatial Data Access (https://www.pasda.psu.edu/)
 
