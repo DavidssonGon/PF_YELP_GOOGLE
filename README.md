@@ -117,7 +117,7 @@ Para visualizar la estructura de la base de datos utilizada en este proyecto, se
 
 ## Diccionario de Datos
 
-[Diccionario de Datos](Diccionario_de_datos.docx).
+[Diccionario de Datos](diccionario_de_datos.pdf).
 
 
 
