@@ -25,11 +25,45 @@ El proyecto abarcará el proceso ETL y el Análisis Exploratorio de Datos (EDA),
 - BigQuery (Data Warehouse)
 - Vertex AI (entrenamiento de modelos de ML)
 
-### Desarrollo del Dashboard
-- PowerBI
-
 ### Endpoints
 - Deployment Streamlit
+
+## Dashboard
+
+### Inspiración de Diseño
+
+El diseño del dashboard se basará en la estética de Yelp para proporcionar al receptor un contexto visual coherente. Esto incluirá el uso de paletas de colores y tipografías inspiradas en Yelp.
+
+Además, se prestará especial atención a aspectos de accesibilidad, llevando a cabo pruebas de daltonismo para elegir colores amigables y asegurando etiquetados adecuados para mejorar la experiencia de usuarios con diversas necesidades.
+
+### Estructura del Dashboard
+
+El dashboard constará de varias secciones:
+
+1. **Home**
+   - Página de inicio con un menú que facilitará la navegación por las diferentes secciones del dashboard.
+
+2. **Contexto Geográfico**
+   - Tablero que mostrará un mapa de la región en análisis (Pensilvania), proporcionando un contexto geográfico para las evaluaciones de los restaurantes.
+
+3. **Tablero principal**
+   - Tablero principal que presentará la información más relevante del análisis general.
+   - Incluirá filtros para facilitar la exploración de datos, permitiendo al usuario seleccionar datos por año y plataforma (Yelp o Google Maps).
+
+4. **KPI 1 y KPI 2**
+   - Tablero dedicado a los primeros dos Key Performance Indicators (KPI).
+   - Mostrará si se lograron o no los objetivos planteados y proporcionará gráficos para respaldar y profundizar en la comprensión de estos KPI.
+
+5. **KPI 3 y KPI 4**
+   - Tablero similar al anterior, pero enfocado en los KPI 3 y 4.
+
+### Implementación del Dashboard
+
+El dashboard se implementará utilizando PowerBI, aprovechando sus capacidades de visualización de datos y facilidades de interactividad.
+
+Para garantizar una experiencia óptima, se recomienda utilizar el dashboard en navegadores modernos y asegurarse de tener una conexión estable a Internet.
+
+
 
 ## Metodología
 El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equipo está compuesto por:
@@ -41,17 +75,35 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 - [Lucas Koch](https://www.linkedin.com/in/lucas-gkoch/) - Data Analyst
 
 ## Cloud - Guía General
-1. **Crear una cuenta de GCP:** Visita la página de GCP y sigue el proceso de inscripción.
-2. **Habilitar la facturación:** Activa la facturación para acceder a los servicios.
-3. **Crear un proyecto:** Agrupa los recursos de GCP en un proyecto.
-4. **Subir tus datos:** Utiliza Cloud Storage para almacenar conjuntos de datos.
-5. **Proceso de ETL:** Emplea Dataproc para el procesamiento de datos en clústeres.
-6. **Crear un Data Warehouse:** Utiliza BigQuery para almacenar y analizar grandes conjuntos de datos.
-7. **Vincular tu Data Warehouse con Notebooks:** Conecta tu Data Warehouse con Dataproc.
-8. **Realizar EDA:** Utiliza Dataproc para explorar patrones y relaciones clave.
-9. **Crear un Dashboard:** Utiliza Cloud Data Studio para crear paneles interactivos.
-10. **Entrenar un Modelo de Machine Learning:** Emplea Cloud AutoML para crear modelos sin experiencia previa en ML.
+![Pipeline de datos](https://drive.google.com/uc?id=1YAyKSca3QadvQL0N1CAeAkrrxJLHBHqa)
 
+1. Registrarse en Google Cloud Platform. 
+2. Activar facturación y regalo de 300 créditos gratis. (Sólo para quien va a trabajar montando el ecosistema, ya que este beneficio tiene una duración limitada de 3 meses)
+    [-Cómo usar Google Cloud Storage](https://www.youtube.com/watch?v=HSIyOin5paQ)
+3. Se establece un presupuesto para el proyecto.
+4. Asignación de roles y permisos para los demás miembros.
+    [-Gestión de Identidades y Accesos de Google Cloud (IAM)](https://www.youtube.com/watch?v=ZS3qyD_cveY)
+5. Se crea un bucket en gcp con la herramienta Google Cloud Storage.
+    -Se crea el bucket.
+    -Se crean las respectivas carpetas de los datasets dentro del bucket.
+    -Se suben los archivos en la carpeta datasets.
+    [-Cómo usar Google Cloud Storage](https://www.youtube.com/watch?v=HSIyOin5paQ)
+6. Se crea un clúster de Apache Spark con la herramienta Dataproc.
+    -Se habilitan las API’s de Cloud Resource Manager API y Cloud Dataproc API.
+    -Se crea el clúster con Compute Engine.
+    -Se suben los scripts de python a la carpeta de un bucket que contienen el código pyspark del ETL.
+7. Se crea un conjunto de Datos en BigQuery
+    -Se habilitan API’s Google BigQuery
+    -Se crea un conjunto de datos
+    -Se crea una consulta que crea las tablas de los datos a entrar del ETL
+8. Se crean las Cloud Functions
+    -Se crea una cloud function para que llene las tablas creadas en BigQuery con los archivos parquet que llegan a un bucket en particular. Esta cloud function se activa con cualquier evento de carga de archivos al bucket.
+    [-Introducción a Google Cloud Functions](https://www.youtube.com/watch?v=Ggec25RDy2o)
+9. Se ejecutan los trabajos en Dataproc
+    -Se realizan de manera manual los trabajos en el clúster creado realizando un llamado a los scripts de ETL
+    -La ejecución del ETL guarda los  DataFrames en archivos parquet en un bucket de salida
+10. Se ejecuta la Cloud Function de manera automática
+    -Al detectar los archivos en el bucket de salida de salida los utiliza para llenar las tablas con sus respectivos nombres asignados
 
 ## Análisis Exploratorio de Datos (EDA)
 - Yelp: 5 tablas (3 hechos, 2 dimensionales). Datos detallados.
