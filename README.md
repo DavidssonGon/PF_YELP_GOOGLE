@@ -105,6 +105,8 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 10. Se ejecuta la Cloud Function de manera automática
     - Al detectar los archivos en el bucket de salida de salida los utiliza para llenar las tablas con sus respectivos nombres asignados
 
+    - [Video demostracion del pipeline](https://drive.google.com/file/d/1VsG5ham_mw_jRBkHIp2sgj0uhnzB_MZQ/view)
+
 ## Análisis Exploratorio de Datos (EDA)
 - Yelp: 5 tablas (3 hechos, 2 dimensionales). Datos detallados.
 - Google Maps: 2 tablas relacionadas. Menos detallado y con datos faltantes.
