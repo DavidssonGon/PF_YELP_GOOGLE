@@ -1,8 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-import folium
-import json
+
 
 
 # Mapeo de nombres visuales a valores internos
