@@ -100,7 +100,7 @@ negocio_validado = st.checkbox("Negocio validado por Yelp")
 # Lista de atributos para seleccionar
 atributos_disponibles = [
     "Cervezas y vinos", "Full Bar", "Cocheras", "Apto para niños",
-    "TV", "Lot", "Estacionamiento", "Delivery", "Bueno para grupos",
+    "TV", "Estacionamiento", "Espacios al aire libre", "Delivery", "Bueno para grupos",
     "Reservas", "Comida para llevar", "Valet parking"
 ]
 
