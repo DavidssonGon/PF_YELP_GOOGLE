@@ -41,7 +41,6 @@ def get_location():
         location_data = response.json()
         latitud = location_data['location']['lat']
         longitud = location_data['location']['lng']
-        print(f'Tu ubicación actual es: Latitud {latitud}, Longitud {longitud}')
         return {'latitud': latitud, 'longitud': longitud}
     else:
         print(f'Error al obtener la ubicación. Código de respuesta: {response.status_code}')
