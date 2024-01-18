@@ -132,21 +132,51 @@ st.markdown("Haga click en el boton para obtener su ubicación")
 obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn")
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
-    # Clave de la API de Google Maps
-    api_key = 'AIzaSyAf2hDafHt6-qes9aPKlpYk2xfblrfvlso'
+    # Código HTML y JavaScript para obtener la ubicación del usuario
+    codigo_html_js = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Obtener Ubicación del Usuario</title>
+    </head>
+    <body>
 
-    #URL de la API de Geolocalización de Google Maps
-    url = f'https://www.googleapis.com/geolocation/v1/geolocate?key={api_key}'
-    response = requests.post(url)
+    <script>
+        // Función para obtener la ubicación del usuario
+        function obtenerUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        // Éxito: posición obtenida
+                        var latitud = position.coords.latitude;
+                        var longitud = position.coords.longitude;
+                        alert('Ubicación obtenida: Latitud ' + latitud + ', Longitud ' + longitud);
+                    },
+                    function(error) {
+                        // Error: no se pudo obtener la ubicación
+                        alert('Error al obtener la ubicación: ' + error.message);
+                    }
+                );
+            } else {
+                // El navegador no soporta geolocalización
+                alert('Tu navegador no soporta geolocalización.');
+            }
+        }
 
-    if response.status_code == 200:
-        location_data = response.json()
-        latitud = location_data['location']['lat']
-        longitud = location_data['location']['lng']
-        st.write(f'latitud: {latitud}, longitud: {longitud}')
-    else:
-        st.write(f'Error al obtener la ubicación. Código de respuesta: {response.status_code}')
-        st.write(f'Contenido de la respuesta: {response.text}')
+        // Llamada a la función cuando el documento se carga
+        document.addEventListener('DOMContentLoaded', function() {
+            obtenerUbicacion();
+        });
+    </script>
+
+    </body>
+    </html>
+    """
+
+    # Mostrar el código HTML y JavaScript en la aplicación Streamlit
+    st.markdown(codigo_html_js, unsafe_allow_html=True)
   
 
 # Dos campos para ingresar manualmente la latitud y la longitud
