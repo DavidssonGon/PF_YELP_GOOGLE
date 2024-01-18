@@ -64,9 +64,6 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
         # Convertir el JSON a DataFrame de Pandas
         df_recomendados = pd.read_json(json_recomendados, orient='records')
 
-        # Mostrar el DataFrame en Streamlit
-        st.dataframe(df_recomendados)
-
         CONNECTICUT_CENTER = (41.5025, -72.699997)
 
         # Crear un mapa de folium centrado en Connecticut
@@ -78,10 +75,11 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
             folium.Marker(location, popup=row['Restaurante']).add_to(map)
 
         # Mostrar el mapa en Streamlit
-        map_container = st.container()
-        with map_container:
-            st.header('Restaurantes Recomendados en el Mapa')
-            st_folium(map, width=700)
+        st.header('Restaurantes Recomendados en el Mapa')
+        st_folium(map, width=700)
+
+        # Mostrar el DataFrame en Streamlit
+        st.dataframe(df_recomendados)
     else:
         st.error("Error al obtener datos de la Cloud Function")
 
