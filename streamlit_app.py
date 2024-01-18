@@ -135,7 +135,7 @@ obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_b
 if obtener_ubicacion_btn:
 
     # Mostrando la información en pantalla
-    st.write(get_location())
+    st.write(print(get_location()))
 
 # Dos campos para ingresar manualmente la latitud y la longitud
 latitud_manual = st.number_input("Latitud (Manual)", min_value=-90.0, max_value=90.0, value=0.0)
