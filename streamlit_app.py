@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 import pandas as pd
 import folium
-from streamlit_folium import st_folium
 from streamlit.components.v1 import html
 
 
@@ -29,6 +28,20 @@ ordenar_por_mapping = {
     "Análisis de sentimiento de los clientes": "nlp"
 }
 
+# Función para obtener la ubicación del usuario a través de la API de Google
+def get_location(api_key):
+    url = f'https://www.googleapis.com/geolocation/v1/geolocate?key={api_key}'
+    response = requests.post(url)
+
+    if response.status_code == 200:
+        location_data = response.json()
+        latitud = location_data['location']['lat']
+        longitud = location_data['location']['lng']
+        print(f'Tu ubicación actual es: Latitud {latitud}, Longitud {longitud}')
+        return {'latitud': latitud, 'longitud': longitud}
+    else:
+        print(f'Error al obtener la ubicación. Código de respuesta: {response.status_code}')
+        return {}
 
 
 # Crear una función para la recomendación de restaurantes basada en los atributos seleccionados
@@ -113,7 +126,18 @@ correo_usuario = st.text_input("Ingrese su correo electrónico:")
 
 # Botón para obtener la ubicación (desabilitado)
 st.markdown("Haga click en el boton para obtener su ubicación")
-obtener_ubicacion_btn = st.button("Obtener Ubicación (Próximamente)", key="obtener_ubicacion_btn", disabled=True)
+obtener_ubicacion_btn = st.button("Obtener Ubicación (Próximamente)", key="obtener_ubicacion_btn")
+# Lógica para obtener la ubicación cuando se presiona el botón
+if obtener_ubicacion_btn:
+    # Llamando a la función y almacenando el resultado en una variable
+    ubicacion_dict = get_location(api_key)
+    
+    # Accediendo a la latitud y longitud desde el diccionario
+    latitud = ubicacion_dict.get('latitud')
+    longitud = ubicacion_dict.get('longitud')
+
+    # Mostrando la información en pantalla
+    st.write(f'Ubicación obtenida a través de la API: Latitud {latitud}, Longitud {longitud}')
 
 # Dos campos para ingresar manualmente la latitud y la longitud
 latitud_manual = st.number_input("Latitud (Manual)", min_value=-90.0, max_value=90.0, value=0.0)
