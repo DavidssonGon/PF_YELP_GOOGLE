@@ -65,10 +65,8 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
         # Convertir el JSON a DataFrame de Pandas
         df_recomendados = pd.read_json(json_recomendados, orient='records')
 
-        CONNECTICUT_CENTER = (41.5025, -72.699997)
-
         # Crear un mapa de folium centrado en Connecticut
-        map = folium.Map(location=CONNECTICUT_CENTER, zoom_start=9)
+        map = folium.Map(location=[latitud_manual,longitud_manual], zoom_start=9)
 
         # Agregar marcadores para cada restaurante recomendado
         for index, row in df_recomendados.iterrows():
