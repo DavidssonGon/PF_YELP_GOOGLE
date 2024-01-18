@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
 import pandas as pd
+import folium
+import streamlit_folium as st_folium
 
 
 
@@ -64,6 +66,27 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
 
         # Mostrar el DataFrame en Streamlit
         st.dataframe(df_recomendados)
+
+        # Esta estructura debería adaptarse a la estructura real de tu DataFrame
+        df_recomendados = {
+            "Restaurante": ["Bar", "The Pizza Pub", "Mako's Retired Surfers Bar & Grill", "John's Bar and Grill", "Plumstead Inn"],
+            "Latitud": [39.9500315, 39.9235305, 39.9415863, 39.9172897, 39.9180483],
+            "Longitud": [-75.1623589, -75.1794968, -75.1476509, -75.3878744, -75.3903784]
+        }
+
+        CONNECTICUT_CENTER = (41.5025, -72.699997)
+
+        # Crear un mapa de folium centrado en Connecticut
+        map = folium.Map(location=CONNECTICUT_CENTER, zoom_start=9)
+
+        # Agregar marcadores para cada restaurante recomendado
+        for index, row in df_recomendados.iterrows():
+            location = (row['Latitud'], row['Longitud'])
+            folium.Marker(location, popup=row['Restaurante']).add_to(map)
+
+        # Mostrar el mapa en Streamlit
+        st.header('Restaurantes Recomendados en el Mapa')
+        st_folium(map, width=700)
 
     else:
         st.error("Error al obtener datos de la Cloud Function")
