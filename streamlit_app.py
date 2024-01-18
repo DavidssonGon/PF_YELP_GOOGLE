@@ -83,7 +83,7 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
         map_html = folium.Figure().add_child(map)._repr_html_()
 
         # Mostrar el HTML en la interfaz de Streamlit
-        st.header('Restaurantes Recomendados en el Mapa')
+        st.markdown('Restaurantes Recomendados en el Mapa')
         html(map_html, width=700, height=500)
 
     else:
@@ -134,7 +134,7 @@ atributos_seleccionados = st.multiselect("Seleccione los atributos que le gustan
 ordenar_por = st.radio("Ordenar por:", ["Cercanía", "Análisis de sentimiento de los clientes"])
 
 # Radio de búsqueda
-radio_busqueda_km = st.selectbox("Radio de búsqueda:", [5, 10, 15, 20])
+radio_busqueda_km = st.selectbox("Radio de búsqueda(km):", [5, 10, 15, 20])
 
 # Botón para realizar la recomendación
 if st.button("Obtener Recomendación"):
