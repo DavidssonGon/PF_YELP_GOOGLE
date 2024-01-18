@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import folium
-import streamlit_folium as st_folium
+from streamlit_folium import st_folium
 
 
 
