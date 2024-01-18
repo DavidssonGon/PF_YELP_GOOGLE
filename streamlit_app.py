@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import folium
 from streamlit_folium import st_folium
+from streamlit.components.v1 import html
 
 
 
@@ -74,9 +75,12 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
             location = (row['Latitud'], row['Longitud'])
             folium.Marker(location, popup=row['Restaurante']).add_to(map)
 
-        # Mostrar el mapa en Streamlit
+        # Convertir el mapa de Folium a HTML
+        map_html = folium.Figure().add_child(map)._repr_html_()
+
+        # Mostrar el HTML en la interfaz de Streamlit
         st.header('Restaurantes Recomendados en el Mapa')
-        st_folium(map, width=700)
+        html(map_html, width=700, height=500)
 
         # Mostrar el DataFrame en Streamlit
         st.dataframe(df_recomendados)
