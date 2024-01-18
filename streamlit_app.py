@@ -78,9 +78,10 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
             folium.Marker(location, popup=row['Restaurante']).add_to(map)
 
         # Mostrar el mapa en Streamlit
-        st.header('Restaurantes Recomendados en el Mapa')
-        st_folium(map, width=700)
-
+        map_container = st.beta_container()
+        with map_container:
+            st.header('Restaurantes Recomendados en el Mapa')
+            st_folium(map, width=700)
     else:
         st.error("Error al obtener datos de la Cloud Function")
 
