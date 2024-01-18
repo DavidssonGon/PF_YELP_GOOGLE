@@ -132,66 +132,15 @@ st.markdown("Haga click en el boton para obtener su ubicación")
 obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn")
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
+    # Llamando a la función y almacenando el resultado en una variable
+    ubicacion_dict = get_location()
+    
+    # Accediendo a la latitud y longitud desde el diccionario
+    latitud = ubicacion_dict.get('latitud')
+    longitud = ubicacion_dict.get('longitud')
 
-    # Insertar código jQuery usando st.echo
-    with st.echo("below"):
-        st.markdown(
-            """
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            """
-        )
-
-
-    st.script_request("https://code.jquery.com/jquery-3.6.0.min.js")  # Asegurarse de que jQuery esté disponible
-    # Código HTML y JavaScript para obtener la ubicación del usuario
-    codigo_html_js = """
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Obtener Ubicación del Usuario</title>
-    </head>
-    <body>
-
-    <script>
-        // Función para obtener la ubicación del usuario
-        function obtenerUbicacion() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        // Éxito: posición obtenida
-                        var latitud = position.coords.latitude;
-                        var longitud = position.coords.longitude;
-
-                        // Imprimir latitud y longitud en la consola
-                        console.log('Latitud:', latitud);
-                        console.log('Longitud:', longitud);
-                    },
-                    function(error) {
-                        // Error: no se pudo obtener la ubicación
-                        console.error('Error al obtener la ubicación:', error.message);
-                    }
-                );
-            } else {
-                // El navegador no soporta geolocalización
-                console.error('Tu navegador no soporta geolocalización.');
-            }
-        }
-
-        // Llamada a la función cuando el documento se carga
-        document.addEventListener('DOMContentLoaded', function() {
-            obtenerUbicacion();
-        });
-    </script>
-
-    </body>
-    </html>
-    """
-
-    # Mostrar el código HTML y JavaScript en la aplicación Streamlit
-    st.markdown(codigo_html_js, unsafe_allow_html=True)
-  
+    # Mostrando la información en pantalla
+    st.write(f'Ubicación obtenida a través de la API: Latitud {latitud}, Longitud {longitud}')
 
 # Dos campos para ingresar manualmente la latitud y la longitud
 latitud_manual = st.number_input("Latitud (Manual)", min_value=-90.0, max_value=90.0, value=0.0)
