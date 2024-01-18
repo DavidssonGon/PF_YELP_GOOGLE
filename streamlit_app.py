@@ -42,7 +42,7 @@ def get_location():
         latitud = location_data['location']['lat']
         longitud = location_data['location']['lng']
         print(f'Tu ubicación actual es: Latitud {latitud}, Longitud {longitud}')
-        return {'latitud': latitud, 'longitud': longitud}
+        return {f'Tu ubicación actual es: Latitud {latitud}, Longitud {longitud}'}
     else:
         print(f'Error al obtener la ubicación. Código de respuesta: {response.status_code}')
         return {}
@@ -133,15 +133,9 @@ st.markdown("Haga click en el boton para obtener su ubicación")
 obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn")
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
-    # Llamando a la función y almacenando el resultado en una variable
-    ubicacion_dict = get_location()
-    
-    # Accediendo a la latitud y longitud desde el diccionario
-    latitud = ubicacion_dict.get('latitud')
-    longitud = ubicacion_dict.get('longitud')
 
     # Mostrando la información en pantalla
-    st.write(f'Ubicación obtenida a través de la API: Latitud {latitud}, Longitud {longitud}')
+    st.write(get_location())
 
 # Dos campos para ingresar manualmente la latitud y la longitud
 latitud_manual = st.number_input("Latitud (Manual)", min_value=-90.0, max_value=90.0, value=0.0)
