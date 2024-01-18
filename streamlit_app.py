@@ -69,7 +69,7 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
         st.dataframe(df_recomendados[['Restaurante','Dirección','Distancia(km)','Análisis de sentimiento']])
 
         # Crear un mapa de folium centrado en Connecticut
-        map = folium.Map(location=[latitud_manual,longitud_manual], zoom_start=15)
+        map = folium.Map(location=[latitud_manual,longitud_manual], zoom_start=10)
 
         # Agregar marcadores para cada restaurante recomendado
         for index, row in df_recomendados.iterrows():
