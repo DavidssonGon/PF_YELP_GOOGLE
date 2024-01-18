@@ -132,6 +132,8 @@ st.markdown("Haga click en el boton para obtener su ubicación")
 obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn")
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
+
+    st.script_request("https://code.jquery.com/jquery-3.6.0.min.js")  # Asegurarse de que jQuery esté disponible
     # Código HTML y JavaScript para obtener la ubicación del usuario
     codigo_html_js = """
     <!DOCTYPE html>
@@ -152,16 +154,19 @@ if obtener_ubicacion_btn:
                         // Éxito: posición obtenida
                         var latitud = position.coords.latitude;
                         var longitud = position.coords.longitude;
-                        alert('Ubicación obtenida: Latitud ' + latitud + ', Longitud ' + longitud);
+
+                        // Imprimir latitud y longitud en la consola
+                        console.log('Latitud:', latitud);
+                        console.log('Longitud:', longitud);
                     },
                     function(error) {
                         // Error: no se pudo obtener la ubicación
-                        alert('Error al obtener la ubicación: ' + error.message);
+                        console.error('Error al obtener la ubicación:', error.message);
                     }
                 );
             } else {
                 // El navegador no soporta geolocalización
-                alert('Tu navegador no soporta geolocalización.');
+                console.error('Tu navegador no soporta geolocalización.');
             }
         }
 
