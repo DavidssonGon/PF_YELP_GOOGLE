@@ -73,6 +73,9 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
             location = (row['Latitud'], row['Longitud'])
             folium.Marker(location, popup=row['Restaurante']).add_to(map)
 
+        # Agregar marcador para la ubicación del usuario actual con un ícono diferente y color
+        folium.Marker([latitud_manual, longitud_manual], popup='Tu ubicación', icon=folium.Icon(color='red')).add_to(map)
+
         # Convertir el mapa de Folium a HTML
         map_html = folium.Figure().add_child(map)._repr_html_()
 
