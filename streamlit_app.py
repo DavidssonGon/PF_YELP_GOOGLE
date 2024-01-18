@@ -66,7 +66,7 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
         df_recomendados = pd.read_json(json_recomendados, orient='records')
 
         # Mostrar el DataFrame en Streamlit
-        st.dataframe(df_recomendados['Restaurante','Dirección','Distancia(km)','Análisis de sentimiento'])
+        st.dataframe(df_recomendados[['Restaurante','Dirección','Distancia(km)','Análisis de sentimiento']])
 
         # Crear un mapa de folium centrado en Connecticut
         map = folium.Map(location=[latitud_manual,longitud_manual], zoom_start=15)
