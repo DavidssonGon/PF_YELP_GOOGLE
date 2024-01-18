@@ -128,13 +128,13 @@ st.title("Recomendador de Restaurantes")
 correo_usuario = st.text_input("Ingrese su correo electrónico:")
 
 
-# Botón para obtener la ubicación (desabilitado)
+# Botón para obtener la ubicación
 st.markdown("Haga click en el boton para obtener su ubicación")
-obtener_ubicacion_btn = st.button("Obtener Ubicación (Próximamente)", key="obtener_ubicacion_btn")
+obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn")
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
     # Llamando a la función y almacenando el resultado en una variable
-    ubicacion_dict = get_location(api_key)
+    ubicacion_dict = get_location()
     
     # Accediendo a la latitud y longitud desde el diccionario
     latitud = ubicacion_dict.get('latitud')
