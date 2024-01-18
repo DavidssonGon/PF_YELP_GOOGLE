@@ -78,7 +78,7 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
             folium.Marker(location, popup=row['Restaurante']).add_to(map)
 
         # Mostrar el mapa en Streamlit
-        map_container = st.beta_container()
+        map_container = st.container()
         with map_container:
             st.header('Restaurantes Recomendados en el Mapa')
             st_folium(map, width=700)
