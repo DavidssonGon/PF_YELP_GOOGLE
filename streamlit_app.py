@@ -132,15 +132,21 @@ st.markdown("Haga click en el boton para obtener su ubicación")
 obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn")
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
-    # Llamando a la función y almacenando el resultado en una variable
-    ubicacion_dict = get_location()
-    
-    # Accediendo a la latitud y longitud desde el diccionario
-    latitud = ubicacion_dict.get('latitud')
-    longitud = ubicacion_dict.get('longitud')
+    # Clave de la API de Google Maps
+    api_key = 'AIzaSyAf2hDafHt6-qes9aPKlpYk2xfblrfvlso'
 
-    # Mostrando la información en pantalla
-    st.write(f'Ubicación obtenida a través de la API: Latitud {latitud}, Longitud {longitud}')
+    #URL de la API de Geolocalización de Google Maps
+    url = f'https://www.googleapis.com/geolocation/v1/geolocate?key={api_key}'
+    response = requests.post(url)
+
+    if response.status_code == 200:
+        location_data = response.json()
+        latitud = location_data['location']['lat']
+        longitud = location_data['location']['lng']
+        st.write(f'latitud: {latitud}, longitud: {longitud}')
+    else:
+        st.write('Error al obtener la ubicación. Código de respuesta: {response.status_code}')
+  
 
 # Dos campos para ingresar manualmente la latitud y la longitud
 latitud_manual = st.number_input("Latitud (Manual)", min_value=-90.0, max_value=90.0, value=0.0)
