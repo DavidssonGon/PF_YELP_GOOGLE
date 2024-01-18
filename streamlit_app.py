@@ -67,13 +67,6 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
         # Mostrar el DataFrame en Streamlit
         st.dataframe(df_recomendados)
 
-        # Esta estructura debería adaptarse a la estructura real de tu DataFrame
-        df_recomendados = {
-            "Restaurante": ["Bar", "The Pizza Pub", "Mako's Retired Surfers Bar & Grill", "John's Bar and Grill", "Plumstead Inn"],
-            "Latitud": [39.9500315, 39.9235305, 39.9415863, 39.9172897, 39.9180483],
-            "Longitud": [-75.1623589, -75.1794968, -75.1476509, -75.3878744, -75.3903784]
-        }
-
         CONNECTICUT_CENTER = (41.5025, -72.699997)
 
         # Crear un mapa de folium centrado en Connecticut
