@@ -146,6 +146,7 @@ if obtener_ubicacion_btn:
         st.write(f'latitud: {latitud}, longitud: {longitud}')
     else:
         st.write(f'Error al obtener la ubicación. Código de respuesta: {response.status_code}')
+        st.write(f'Contenido de la respuesta: {response.text}')
   
 
 # Dos campos para ingresar manualmente la latitud y la longitud
