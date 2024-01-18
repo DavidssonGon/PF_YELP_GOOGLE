@@ -29,7 +29,11 @@ ordenar_por_mapping = {
 }
 
 # Función para obtener la ubicación del usuario a través de la API de Google
-def get_location(api_key):
+def get_location():
+    # Clave de la API de Google Maps
+    api_key = 'AIzaSyAf2hDafHt6-qes9aPKlpYk2xfblrfvlso'
+
+    #URL de la API de Geolocalización de Google Maps
     url = f'https://www.googleapis.com/geolocation/v1/geolocate?key={api_key}'
     response = requests.post(url)
 
