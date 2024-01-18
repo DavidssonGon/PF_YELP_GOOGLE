@@ -65,26 +65,31 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
         # Convertir el JSON a DataFrame de Pandas
         df_recomendados = pd.read_json(json_recomendados, orient='records')
 
-        # Mostrar el DataFrame en Streamlit
-        st.dataframe(df_recomendados[['Restaurante','Dirección','Distancia(km)','Análisis de sentimiento']])
+        if not df_recomendados.empty:
 
-        # Crear un mapa de folium centrado en Connecticut
-        map = folium.Map(location=[latitud_manual,longitud_manual], zoom_start=10)
+            # Mostrar el DataFrame en Streamlit
+            st.dataframe(df_recomendados[['Restaurante','Dirección','Distancia(km)','Análisis de sentimiento']])
 
-        # Agregar marcadores para cada restaurante recomendado
-        for index, row in df_recomendados.iterrows():
-            location = (row['Latitud'], row['Longitud'])
-            folium.Marker(location, popup=row['Restaurante']).add_to(map)
+            # Crear un mapa de folium centrado en Connecticut
+            map = folium.Map(location=[latitud_manual,longitud_manual], zoom_start=10)
 
-        # Agregar marcador para la ubicación del usuario actual con un ícono diferente y color
-        folium.Marker([latitud_manual, longitud_manual], popup='Tu ubicación', icon=folium.Icon(color='red')).add_to(map)
+            # Agregar marcadores para cada restaurante recomendado
+            for index, row in df_recomendados.iterrows():
+                location = (row['Latitud'], row['Longitud'])
+                folium.Marker(location, popup=row['Restaurante']).add_to(map)
 
-        # Convertir el mapa de Folium a HTML
-        map_html = folium.Figure().add_child(map)._repr_html_()
+            # Agregar marcador para la ubicación del usuario actual con un ícono diferente y color
+            folium.Marker([latitud_manual, longitud_manual], popup='Tu ubicación', icon=folium.Icon(color='red')).add_to(map)
 
-        # Mostrar el HTML en la interfaz de Streamlit
-        st.markdown('Restaurantes Recomendados en el Mapa')
-        html(map_html, width=700, height=500)
+            # Convertir el mapa de Folium a HTML
+            map_html = folium.Figure().add_child(map)._repr_html_()
+
+            # Mostrar el HTML en la interfaz de Streamlit
+            st.markdown('Ubicación de los restaurantes recomendados:')
+            html(map_html, width=700, height=500)
+        else:
+            # Mostrar un mensaje si el DataFrame está vacío
+            st.warning('No se encontraron restaurantes adecuados en el radio de búsqueda.')
 
     else:
         st.error("Error al obtener datos de la Cloud Function")
