@@ -133,6 +133,15 @@ obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_b
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
 
+    # Insertar código jQuery usando st.echo
+    with st.echo("below"):
+        st.markdown(
+            """
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            """
+        )
+
+
     st.script_request("https://code.jquery.com/jquery-3.6.0.min.js")  # Asegurarse de que jQuery esté disponible
     # Código HTML y JavaScript para obtener la ubicación del usuario
     codigo_html_js = """
