@@ -107,6 +107,10 @@ El proyecto seguirá la metodología Scrum para la gestión y desarrollo. El equ
 
     - [Video demostracion del pipeline](https://drive.google.com/file/d/1VsG5ham_mw_jRBkHIp2sgj0uhnzB_MZQ/view)
 
+## Deploy en Streamlit
+El proyecto contará con una aplicacion desplegada en streamlit, la cual le brindará al usuario una recomendación de restaurantes basada en su ubicación y preferencias.
+[Esta aplicación](streamlit_app.py) está programada en python y realiza un request con el metodo POST a una cloud function de GCP enviandole un diccionario con la informacion necesaria. La cloud function, mediante un modelo de machine learning basado en similitud del coseno y tecnicas de NLP, recomienda los 5 restaurantes más apropiados y devuelve a la aplicación un JSON con la informacion necesaria, el cual será procesado y mostrado al usuario en forma tabular y también en un mapa.
+
 ## Análisis Exploratorio de Datos (EDA)
 - Yelp: 5 tablas (3 hechos, 2 dimensionales). Datos detallados.
 - Google Maps: 2 tablas relacionadas. Menos detallado y con datos faltantes.
