@@ -3,8 +3,7 @@ import requests
 import pandas as pd
 import folium
 from streamlit.components.v1 import html
-from PIL import Image
-from io import BytesIO
+
 
 
 # Mapeo de nombres visuales a valores internos
@@ -117,15 +116,6 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
 # Configuración de la aplicación
 st.set_page_config(page_title="Recomendador de Restaurantes", page_icon="🍔")
 
-# Generar la URL de imagen directa
-url_imagen_google_drive = "https://drive.google.com/uc?id=1u_jqxA7xSOVgBbDS0Je41r6dn4uFiWLc"
-
-# Obtener la imagen desde la URL
-response = requests.get(url_imagen_google_drive)
-img = Image.open(BytesIO(response.content))
-
-# Mostrar la imagen en Streamlit
-st.image(img, caption="Descripción de la imagen", use_column_width=True)
 
 # Inicializar la sesión del estado
 if 'ubicacion_usuario' not in st.session_state:
