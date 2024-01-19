@@ -112,8 +112,12 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
 
 
 
+
 # Configuración de la aplicación
 st.set_page_config(page_title="Recomendador de Restaurantes", page_icon="🍔")
+
+# Mostrar la imagen en Streamlit
+st.image("https://drive.google.com/uc?id=12tR0OZWicqlh8yVJCJLi70OdkDyn_ZlO", caption="Descripción de la imagen", use_column_width=True)
 
 # Inicializar la sesión del estado
 if 'ubicacion_usuario' not in st.session_state:
