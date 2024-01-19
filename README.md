@@ -1,5 +1,5 @@
 # Yelp - Google Maps
-
+ 
 ## Menú de Navegación
 
 - [Objetivos del Proyecto](#objetivos-del-proyecto)
