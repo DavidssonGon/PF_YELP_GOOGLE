@@ -131,7 +131,7 @@ correo_usuario = st.text_input("Ingrese su correo electrónico:")
 
 # Botón para obtener la ubicación
 st.markdown("Haga click en el boton para obtener su ubicación")
-obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn")
+obtener_ubicacion_btn = st.button("Obtener Ubicación", key="obtener_ubicacion_btn", disabled=True)
 # Lógica para obtener la ubicación cuando se presiona el botón
 if obtener_ubicacion_btn:
     # Llamando a la función y almacenando el resultado en una variable
