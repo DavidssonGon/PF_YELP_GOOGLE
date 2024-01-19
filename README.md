@@ -75,6 +75,8 @@ El dashboard constará de varias secciones:
 5. **KPI 3 y KPI 4**
    - Tablero similar al anterior, pero enfocado en los KPI 3 y 4.
 
+![tablero principal](assets\dashboard_principal.pdf)
+
 ### Implementación del Dashboard
 
 El dashboard se implementará utilizando PowerBI, aprovechando sus capacidades de visualización de datos y facilidades de interactividad.
