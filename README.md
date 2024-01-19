@@ -75,7 +75,7 @@ El dashboard constará de varias secciones:
 5. **KPI 3 y KPI 4**
    - Tablero similar al anterior, pero enfocado en los KPI 3 y 4.
 
-![tablero principal](assets\dashboard_principal.pdf)
+![tablero principal](assets/dashboard_principal.png)
 
 ### Implementación del Dashboard
 
