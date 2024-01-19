@@ -63,6 +63,9 @@ El dashboard se implementará utilizando PowerBI, aprovechando sus capacidades d
 
 Para garantizar una experiencia óptima, se recomienda utilizar el dashboard en navegadores modernos y asegurarse de tener una conexión estable a Internet.
 
+### [Link al dashboard](https://app.powerbi.com/view?r=eyJrIjoiNmNhZDM1OWQtMGY1Yi00ZTljLTk4ZmYtMmU5NGE0N2QxZWM1IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
+### [Informe del dashboard]('Informe_dashboard.pdf')
+
 
 
 ## Metodología
