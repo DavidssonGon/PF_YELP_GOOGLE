@@ -4,7 +4,7 @@ import pandas as pd
 import folium
 from streamlit.components.v1 import html
 from PIL import Image
-
+from io import BytesIO
 
 
 # Mapeo de nombres visuales a valores internos
