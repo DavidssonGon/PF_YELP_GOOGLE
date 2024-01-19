@@ -118,7 +118,7 @@ def recomendar_restaurante(correo_usuario, atributos_seleccionados, acepta_tarje
 st.set_page_config(page_title="Recomendador de Restaurantes", page_icon="🍔")
 
 # Generar la URL de imagen directa
-url_imagen_google_drive = "https://drive.google.com/uc?id=12tR0OZWicqlh8yVJCJLi70OdkDyn_ZlO"
+url_imagen_google_drive = "https://drive.google.com/uc?id=1u_jqxA7xSOVgBbDS0Je41r6dn4uFiWLc"
 
 # Obtener la imagen desde la URL
 response = requests.get(url_imagen_google_drive)
