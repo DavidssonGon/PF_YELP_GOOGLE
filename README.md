@@ -197,4 +197,4 @@ El proceso de consulta de recomendación guarda los datos sobre las recomendacio
 
 Hemos desarrollado un video que vende nuestra idea mostrando la funcionalidad de nuestros productos. 
 
-### [Link al video](https://youtu.be/E8Rd-e9i4cI)
+### [Link al video](https://www.youtube.com/watch?v=DVFc8fxR0yw)
